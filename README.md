@@ -45,13 +45,14 @@ To run Profeval locally, follow these steps:
 
 3. **Set up environment variables**:
 
-   Create a `.env` file in the root directory and add your keys:
+   Copy `.env.example` to `.env.local` in the root directory (and `chatbot-python/.env.example` to `chatbot-python/.env` for the Python scripts) and fill in your own keys. These files are git-ignored; never commit them.
 
     ```plaintext
-    NEXT_PUBLIC_CLERK_FRONTEND_API=<Your Clerk Frontend API>
-    CLERK_API_KEY=<Your Clerk API Key>
-    PINECONE_API_KEY=<Your Pinecone API Key>
-    SCRAPER_API_KEY=<Your Scraper API Key>
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<Your Clerk publishable key>
+    CLERK_SECRET_KEY=<Your Clerk secret key>
+    GROQ_API_KEY=<Your Groq API key>
+    PINECONE_API_KEY=<Your Pinecone API key>
+    HUGGINGFACE_API_KEY=<Your Hugging Face token>
     ```
 
 4. **Run the development server**:

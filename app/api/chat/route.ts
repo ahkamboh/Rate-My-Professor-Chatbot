@@ -4,11 +4,11 @@ import Groq from "groq-sdk";
 import { HfInference } from "@huggingface/inference";
 
 // Initialize Hugging Face Inference API client with the correct API key
-const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGINGFACE_API_KEY);
+const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
 // Initialize Groq client with the API key
 const groq = new Groq({
-  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY || "",
+  apiKey: process.env.GROQ_API_KEY || "",
 });
 
 const systemPrompt = `
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     // Initialize Pinecone
     const pc = new Pinecone({
-      apiKey: process.env.NEXT_PUBLIC_PINECONE_API_KEY || "",
+      apiKey: process.env.PINECONE_API_KEY || "",
     });
 
     const index = pc.index("rag4").namespace("ns1");

@@ -5,7 +5,7 @@ import { Pinecone, PineconeRecord } from "@pinecone-database/pinecone";
 import { HfInference } from "@huggingface/inference";
 
 // Initialize Hugging Face Inference API client with the correct API key
-const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGINGFACE_API_KEY);
+const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
 export async function POST(request: Request) {
   const { url } = await request.json();
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
 
     // Initialize Pinecone client
     const pinecone = new Pinecone({
-      apiKey: process.env.NEXT_PUBLIC_PINECONE_API_KEY!,
+      apiKey: process.env.PINECONE_API_KEY!,
     });
     const index = pinecone.index("rag4").namespace("ns1");
 
